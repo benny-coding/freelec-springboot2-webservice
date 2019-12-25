@@ -13,12 +13,6 @@ public class PostsApiController {
 
     private final PostsService postsService;
 
-
-    @GetMapping("/api/v1/posts/{id}")
-    public PostsResponseDto findById (@PathVariable Long id){
-        return postsService.findById(id);
-    }
-
     @PostMapping("/api/v1/posts")
     public Long save(@RequestBody PostsSaveRequestDto requestDto) {
         return postsService.save(requestDto);
@@ -28,4 +22,11 @@ public class PostsApiController {
     public Long update(@PathVariable Long id, @RequestBody PostsUpdateRequestDto reqeustDto){
         return postsService.update(id, reqeustDto);
     }
+
+    @GetMapping("/api/v1/posts/{id}")
+    public PostsResponseDto findById (@PathVariable Long id){
+        return postsService.findById(id);
+    }
+
+
 }

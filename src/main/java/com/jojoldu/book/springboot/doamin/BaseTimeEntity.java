@@ -2,7 +2,6 @@ package com.jojoldu.book.springboot.doamin;
 
 import lombok.Getter;
 import org.springframework.data.annotation.CreatedDate;
-import org.springframework.data.annotation.LastModifiedBy;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
@@ -11,14 +10,14 @@ import javax.persistence.MappedSuperclass;
 import java.time.LocalDateTime;
 
 @Getter
-@MappedSuperclass
-@EntityListeners(AuditingEntityListener.class)
+@MappedSuperclass  // ①
+@EntityListeners(AuditingEntityListener.class) // ②
 public abstract class BaseTimeEntity {
 
-    @CreatedDate
+    @CreatedDate  // ③
     private LocalDateTime createdDate;
 
-    @LastModifiedDate
+    @LastModifiedDate // ④
     private LocalDateTime modifiedDate;
 
 }
